@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://venoms-live.top/players/greens.js?27" type="text/javascript"></script>
+    <script type="text/javascript" src="https://eu.peerflow.io/ppsp/ppsp.js"></script>
+    <script type="text/javascript" src="https://eu.peerflow.io/pjs-peerflow-adapter/pjs-peerflow-adapter.js"></script>
+
+    <div id="player" style="width:100%;height:100%;"></div>
+
+    <script>
+        var peerFlowConfig = { swarmID: '04c4e904d3d87171b94ea743b5f60b52c3087e96ce4c6a2f566373e23d5a8005c10dd1e7b29caa96feecdc5f4b3ed7c1ab22df4e4a57d33691e6e2b90ac4702e4d', stun: ['stun2.peerflow.io:19302', 'stun.l.google.com:19302']};
+        var player = undefined;
+        var pjsPeerflowAdapter = undefined;
+        const PlayerReady = (id) => {
+            pjsPeerflowAdapter = new PjsPeerflowAdapter(window.player, 'OTA3ZjlmZjYtMzIxYS00NWEzLWEyNDQtN2I1ODQ4ZWY4MzVjOjZlc2J5MlQzR3ZzRW9YcWJIdFVwc0RNWVZJY294NGRq'/*, swarmConfig*/);
+            pjsPeerflowAdapter.on('ready', () => {
+	            pjsPeerflowAdapter.startChannel(peerFlowConfig);
+	        });
+        }
+
+        window.player = new Playerjs({ id: "player", file: undefined, autoplay: "0", vast: 0, preroll: "vast7213", ready: "PlayerReady" });
+
+    </script>
+</body>
+
+</html>
